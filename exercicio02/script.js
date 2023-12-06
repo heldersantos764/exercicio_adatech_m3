@@ -171,9 +171,56 @@ console.log(triangulo.ladosValidos(), triangulo.calcularArea())
 console.log('------------------------------------------------------------')
 
 // Crie uma classe chamada "Produto" com os atributos nome, preço e quantidade em estoque. Implemente um construtor para inicializar esses atributos e métodos para calcular o valor total em estoque e para adicionar ou remover unidades do estoque. Crie objetos de produtos e teste os métodos. 🛒💰
+class Produto{
+    constructor(nome, preco, quantidadeEmEstoque){
+        this.nome = nome
+        this.preco = preco
+        this.quantidadeEmEstoque = quantidadeEmEstoque
+    }
 
+    adicionarEmEstoque(quantidade){
+        this.quantidadeEmEstoque += quantidade
+    }
+
+    removerEmEstoque(quantidade){
+        if(this.quantidadeEmEstoque >= quantidade){
+            this.quantidadeEmEstoque -= quantidade
+        }else{
+            console.log("Quantidade maior que a quantidade em estoque")
+        }
+    }
+
+    getQuantidadeEmEstoque(){
+        return this.quantidadeEmEstoque;
+    }
+}
+
+const prod = new Produto('Celular', 2500, 30)
+prod.adicionarEmEstoque(20)
+prod.removerEmEstoque(10)
+console.log(prod.getQuantidadeEmEstoque())
+console.log('------------------------------------------------------------')
 
 // Desenvolva uma classe chamada "Funcionário" com os atributos nome, cargo e salário. Adicione um construtor para inicializar esses atributos. Implemente um método para aumentar o salário de um funcionário em uma determinada porcentagem. Crie objetos de funcionários e teste o método de aumento de salário. 👨‍💼💼📈
+class Funcionario{
+    constructor(nome, cargo, salario){
+        this.nome = nome
+        this.cargo = cargo
+        this.salario = salario
+    }
+
+    aumentarSalario(percentual){
+        this.salario = this.salario+this.salario*(percentual/100)
+    }
+
+    getSalario(){
+        return this.salario
+    }
+}
+
+const funcionario = new Funcionario("Marcos", "gerente", 4000)
+funcionario.aumentarSalario(10)
+console.log(funcionario.getSalario())
 
 // Crie uma classe chamada "Animal" com os atributos nome, espécie e idade. Implemente um construtor para esta classe. Crie objetos de animais e exiba suas informações. 🐶🐱🦁
 
